@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test-style.css" />
+    <title>Document</title>
+</head>
+
+<body style="display: block;">
+    <h2 style="margin-top: 50px;">Position static</h2>
+    <div class="static" style="position: static;
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;">
+        Стандартное положение
+    </div>
+    <h2 style="margin-top: 20px;">Position relative</h2>
+    <div class="relative" style="position: relative;
+    top: 0px;
+    left: 20px;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;">
+        Относительное позиционирование
+        <div class="absolute" style="position: absolute;
+    top: 10px;
+    left: 20px;
+    background-color: rgb(22, 201, 91);
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;">
+            Абсолютное позиционирование относительно родителя
+        </div>
+    </div>
+
+    <div class="fixed" style="position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+    background-color: rgb(175, 225, 36);
+    border: 1px solid black;
+    padding: 10px;">
+        Фиксированный заголовок
+    </div>
+    <h2 style="margin-top: 20px;">Position sticky</h2>
+    <div class="sticky" style="position: sticky;
+    top: 200px;
+    background-color: cornsilk;
+    border: 1px solid black;
+    padding: 10px;
+    ">
+        Липкий элемент
+    </div>
+    <h1>Примеры использования Flexbox</h1>
+    <h2>Пример 1: flex-direction</h2>
+    <div flex-direction style="display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 20px;">
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: aliceblue;">Элемент 1</div>
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: aliceblue;">Элемент 2</div>
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: aliceblue;">Элемент 3</div>
+    </div>
+    <h2>Пример 2: justify-content</h2>
+    <div justify-content style="display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;">
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: antiquewhite;">Элемент 1</div>
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: antiquewhite;">Элемент 2</div>
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: antiquewhite;">Элемент 3</div>
+    </div>
+    <h2>Пример 3: align-items</h2>
+    <div style="display: flex;
+        flex-direction: column;
+        align-items: center;">
+        <div align-items style="display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 20px;">
+            <div style="padding: 40px; 
+        border: 1px solid black;
+        background-color: aqua;">Элемент 1</div>
+            <div style="padding: 20px; 
+        border: 1px solid black;
+        background-color: aqua;">Элемент 2</div>
+            <div style="padding: 30px; 
+        border: 1px solid black;
+        background-color: aqua;">Элемент 3</div>
+        </div>
+    </div>
+    <h2>Пример 4: flex-wrap</h2>
+    <div flex-wrap style="display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;">
+        <div style="padding: 40px; 
+        border: 1px solid black;
+        background-color: brown;">Элемент 1</div>
+        <div style="padding: 20px; 
+        border: 1px solid black;
+        background-color: brown;">Элемент 2</div>
+        <div style="padding: 30px; 
+        border: 1px solid black;
+        background-color: brown;">Элемент 3</div>
+        <div style="padding: 40px; 
+        border: 1px solid black;
+        background-color: brown;">Элемент 1</div>
+        <div style="padding: 20px; 
+        border: 1px solid black;
+        background-color: brown;">Элемент 2</div>
+        <div style="padding: 30px; 
+        border: 1px solid black;
+        background-color: brown;">Элемент 3</div>
+
+    </div>
+    <h2>Пример 6: center</h2>
+    <div center style="display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: 200px;
+        margin-bottom: 20px;">
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: antiquewhite;">Элемент 1</div>
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: antiquewhite;">Элемент 1</div>
+        <div style="padding: 10px; 
+        border: 1px solid black;
+        background-color: antiquewhite;">Элемент 1</div>
+    </div>
+    <button class="btn" style="height: 50px; width: 50%;">
+        Кликни
+    </button>
+
+    <input type="text" class="input-field" placeholder="Введите текст ..."/>
+    <ul class="decorated-list">
+        <li>Пункт 1</li>
+        <li>Пункт 2</li>
+        <li>Пункт 3</li>
+    </ul>
+
+    <h1>CSS Grid</h1>
+    <h2>Пример 1: Основная сетка</h2>
+    <div class="parent-main">
+    <div class="child">Элемент 1</div>
+    <div class="child">Элемент 2</div>
+    <div class="child">Элемент 3</div>
+    <div class="child">Элемент 4</div>
+    <div class="child">Элемент 5</div>
+    <div class="child">Элемент 6</div>
+    <div class="child">Элемент 7</div>
+    <div class="child">Элемент 8</div>
+    <div class="child">Элемент 9</div>
+    </div>
+    <h2>Пример 2: Автоматические строки</h2>
+    <div class="parent-auto">
+    <div class="child">Элемент 1</div>
+    <div class="child">Элемент 2</div>
+    <div class="child">Элемент 3</div>
+    <div class="child">Элемент 4</div>
+    <div class="child">Элемент 5</div>
+    <div class="child">Элемент 6</div>
+    </div>
+    <h2>Пример 3: Grid areas</h2>
+    <div class="parent-areas">
+    <div class="header">Шапка</div>
+    <div class="sidebar">Боковая панель</div>
+    <div class="main">Основной контент<p>Высота строки определяется содержимым</p>
+    </div>
+    <div class="footer">Футер</div>
+    </div>
+    <h2>Пример 4: Адаптивная галерея</h2>
+    <div class="parent-gallery">
+        <div class="child-img"><img src="/public/static/images/downpour.png"></div>
+        <div class="child-img"><img src="/public/static/images/hail.png"></div>
+        <div class="child-img"><img src="/public/static/images/overcast.png"></div>
+        <div class="child-img"><img src="/public/static/images/rain.png"></div>
+        <div class="child-img"><img src="/public/static/images/storm.png"></div>
+        <div class="child-img"><img src="/public/static/images/sunset.png"></div>
+    </div>
+    <h2>Пример 5: Другие примеры</h2>
+    <div class="parent-another">
+        <div class="child_wide">Элемент 1 - занимает 2 колонки</div>
+        <div class="child">Элемент 2</div>
+        <div class="child_tall">Элемент 3 - занимает 2 строки</div>
+        <div class="child_big">Элемент 4 - занимает 2 колонки и 2 строки</div>
+        <div class="child">Элемент 5 <br> Дополнительная строка</div>
+        <div class="child">Элемент 6 <br> Дополнительная строка</div>
+    </div>
+    <h2>Пример 6: Центрирование</h2>
+    <div class="parent-center">
+        <div class="child-center">Элемент 1 - в центре</div>
+    </div>
+</body>
+
+</html>

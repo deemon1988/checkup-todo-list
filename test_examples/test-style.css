@@ -1,0 +1,188 @@
+.btn {
+    background-color: aquamarine;
+    border: 0;
+}
+.btn:hover {
+    background-color: skyblue;
+}
+
+.btn:active {
+    background-color: aqua;
+    margin-top: 3px;
+    margin-left: 3px;
+    }
+
+.input-field {
+    display: block;
+    margin-top: 30px;
+    height: 30px;
+    width: 50%;
+}
+
+.decorated-list>li {
+    list-style: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+}
+
+
+.decorated-list>li::before {
+    content: "";
+    display: inline-block;
+    background: url("/../public/static/icons/happy.png") no-repeat;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+}
+
+.parent-main {
+    display: grid;
+    grid-template-columns: 100px auto 50%;
+    grid-template-rows: 100px 300px 100px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.parent-auto {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    grid-auto-rows: 100px;
+    margin-bottom: 20px;
+}
+
+.parent-auto>.child {
+    background-color: lightgreen;
+}
+
+.parent-areas {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(194, 234, 194, 0.689);
+}
+
+.parent-areas>.child {
+    background-color: gold;
+}
+
+.header {
+    grid-area: header;
+    background-color: yellowgreen;
+    border: 1px, solid, green;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: rgb(50, 205, 99);
+    height: 30px;
+    border: 1px, solid, green;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.main {
+    grid-area: main;
+    background-color: rgb(107, 205, 50);
+    border: 1px, solid, green;
+    align-content: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: rgba(31, 130, 18, 0.425);
+    border: 1px, solid, green;
+    align-content: center;
+    text-align: center;
+    padding: 5px;
+}
+
+.parent-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+    border: 1px solid forestgreen;
+}
+
+.child-img {
+    background-color: rgba(0, 255, 255, 0.422);
+    display: flex; /* Используем Flexbox */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали */
+}
+
+.child-img>img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid forestgreen;
+}
+
+
+.parent-another {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50px 100px 50px;
+    gap: 10px;
+    grid-auto-rows: 50px;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+}
+
+.child {
+    background-color: rgb(246, 238, 153);
+    align-content: center;
+    text-align: center;
+}
+.child_wide {
+    grid-column: span 2;
+    background-color: cadetblue;
+    align-content: center;
+    text-align: center;
+}
+
+.child_tall {
+    background-color: chartreuse;
+    grid-row: span 2;
+    align-content: center;
+    text-align: center;
+}
+
+.child_big {
+    background-color: rgb(178, 175, 175);
+    grid-column: span 2;
+    grid-row: span 2;
+    align-content: center;
+    text-align: center;
+}
+
+.parent-center {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    border: 1px solid firebrick;
+    background-color: floralwhite;
+}
+
+.child-center {
+    border: 1px solid rgb(23, 25, 21);
+    background-color: lavender;
+    padding: 15px;
+}
