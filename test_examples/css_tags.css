@@ -1,0 +1,63 @@
+h2 {
+    text-decoration: underline;
+}
+header {
+    background-color: rgb(148, 222, 135);
+    border: 3px solid darkblue;
+}
+
+.logo {
+    border: 3px solid rgb(103, 171, 248);
+}
+.top-menu {
+    border: 3px solid salmon;
+}
+main {
+    background-color: rgb(226, 240, 244);
+    border: 3px solid rgb(103, 171, 248);
+}
+.games {
+    border: 3px solid salmon;
+}
+.popular-games {
+    border: 3px solid rgb(61, 246, 101);
+}
+.media {
+    border: 3px solid rgb(199, 63, 241);
+}
+.list-media {
+    border: 3px solid rgb(4, 0, 249);
+}
+
+.article {
+    text-align: center;
+    background-color: rgb(177, 143, 143);
+    border: 3px solid rgb(16, 123, 142);
+}
+.text {
+    text-align: center;
+    border: 3px solid rgb(95, 139, 0);
+    width: 700px;
+    height: 300px;
+}
+
+aside {
+    background-color: rgb(218, 249, 210);
+    border: 3px solid rgb(103, 171, 248);
+}
+
+section {
+    background-color: rgb(239, 255, 191);
+    border: 3px solid rgb(103, 171, 248);
+}
+
+footer {
+    background-color: rgb(249, 135, 135);
+    border: 3px solid rgb(70, 4, 222);
+}
+.down-menu {
+    border: 3px solid rgb(95, 139, 0);
+}
+.logos {
+    border: 3px solid rgb(70, 4, 222);
+}
