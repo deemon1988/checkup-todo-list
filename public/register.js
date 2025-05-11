@@ -9,7 +9,7 @@ form.addEventListener("submit", async (event) => {
     const surname = form.querySelector("#user_surname").value;
     const email = form.querySelector("#user_email").value;
     const age = form.querySelector("#age").value;
-    const password = form.querySelector("#password").value;
+    const password = form.querySelector("#reg_pass").value;
 
     const formData = {
         login: login,
@@ -65,6 +65,7 @@ fetch(URL, {
 .catch((error) => {
     console.error("Error fetching data:", error);
 });
+
 
 
 
