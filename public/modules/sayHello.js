@@ -1,10 +1,10 @@
-import { userName } from "../script.js";
+// import { userName } from "../script.js";
 
-export function sayHello() {
-    alert(`Hello ${userName}`);
-}
+// export function sayHello() {
+//     alert(`Hello ${userName}`);
+// }
 
-export function helloUser() {
-    alert("Hi, Bob");
-}
+// export function helloUser() {
+//     alert("Hi, Bob");
+// }
 
