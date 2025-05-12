@@ -28,7 +28,10 @@ body {
 
 
 .registration {
-    display: none;
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 100vh;
 }
 
 .registration form {
@@ -37,6 +40,7 @@ body {
 }
 
 .reg_form {
+    box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 8px 11px 5px rgba(0, 0, 0, 0.2);
@@ -45,7 +49,7 @@ body {
     gap: 10px;
     /* Расстояние между элементами */
     width: 500px;
-    padding: 10px;
+    padding: 30px 50px;
     background-color: #EECCBB;
     min-width: 0;
 }
@@ -60,15 +64,21 @@ body {
 }
 
 .authorization {
-    display: none;
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    height: 100vh;
+
 }
 
 .authorization form {
     display: flex;
     justify-content: center;
+    
 }
 
 .auth_form {
+    box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 8px 11px 5px rgba(0, 0, 0, 0.2);
@@ -77,7 +87,7 @@ body {
     gap: 10px;
     /* Расстояние между элементами */
     width: 500px;
-    padding: 10px;
+    padding: 30px 50px;
     background-color: #EECCBB;
     min-width: 0;
 }
@@ -155,7 +165,7 @@ form>input {
 
 
 input[type="submit"] {
-    margin-top: 20px;
+    margin-top: 30px;
     display: block;
     background-color: #A0B2C6;
     color: black;
@@ -174,6 +184,7 @@ input[type="submit"]:hover {
 .user-card {
     padding: 20px;
     margin-bottom: 20px;
+    margin-right: 20px;
     background: linear-gradient();
     width: 30%;
     display: flexbox;
