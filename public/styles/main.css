@@ -1,9 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+.list-container {
+    border: 3px solid cadetblue;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+    display: block;
+}
+
+.list {
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    
+}
+
+.list>li {
+    background-color: #ccc;
+    /* margin: 0 auto; */
+    min-width: 100px;
+}
+
+.list .user-card {
+    width: auto;
+    margin: 20px;
+    text-transform: uppercase;
+    /* overflow-y: auto; */
+    min-height: 150px;
+    /* height: 150px; */
+    word-wrap: break-word; /* Переносит слова при необходимости */
+    max-width: 100%;
+}
+
+
+@media (hover: hover) {
+.list>li:hover {
+    background-color: yellowgreen;
+}
+}
+
 body {
     font-family: "Open Sans", sans-serif;
     font-style: normal;
-
 }
 
 .parent {

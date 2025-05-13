@@ -2,3 +2,13 @@
     display: block;
     color: #b83939;
 }
+
+.message-error {
+    display: block;
+    color: #b83939;
+}
+
+.input-error {
+    border: 2px solid #b83939; /* Красная рамка */
+    outline: none; /* Убираем стандартный outline */
+}

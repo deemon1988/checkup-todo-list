@@ -6,10 +6,12 @@ if (!token) {
     window.location.href = "../auth/auth.html"
 }
 
-const exitBtn = document.querySelector("#exit")
+
+const exitBtn = document.getElementById("exit")
 exitBtn.addEventListener('click', (event) => {
     event.preventDefault()
     localStorage.removeItem('token')
+    localStorage.removeItem('existingTaskIds')
     window.location.href = "../auth/auth.html"
 })
 
@@ -114,9 +116,3 @@ async function getAllTasks() {
     }
 }
 
-const userTasks = document.getElementById("user-tasks")
-userTasks.addEventListener("click", (event) => {
-    event.preventDefault()
-    getAllTasks()
-
-})
