@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
     <link rel="stylesheet" href="../public/styles/register.css">
     <title>Registaration</title>
 </head>
+
 <body>
-      <section>
+    <section>
         <div class="registration">
             <form action="" method="get">
                 <div class="reg_form">
                     <h2 style="margin-bottom: 50px;">Регистрация</h2>
                     <label for="reg_login">Имя пользователя</label>
-                    <input type="text" name="reg_login" placeholder="Введите имя пользователя" id="reg_login"
-                        required autocomplete="username" />
+                    <input type="text" name="reg_login" placeholder="Введите имя пользователя" id="reg_login" required
+                        autocomplete="username" />
 
                     <!-- <label for="username">Имя</label>
                     <input type="text" name="username" id="username" placeholder="Введите имя" id="username"
@@ -26,15 +28,15 @@
                         autocomplete="family-name" /> -->
 
                     <label for="user_email">Почта</label>
-                    <input type="email" name="user_email" id="user_email" placeholder="Введите почту"
-                        required autocomplete="email" />
+                    <input type="email" name="user_email" id="user_email" placeholder="Введите почту" required
+                        autocomplete="email" />
 
                     <!-- <label for="age">Возраст</label>
                     <input type="number" name="age" id="age" placeholder="Введите возраст" id="age" /> -->
 
                     <label for="password" minlenght="3">Пароль</label>
-                    <input type="password" name="password" id="password" placeholder="Введите пароль"
-                        required minlength="8" autocomplete="new-password" />
+                    <input type="password" name="password" id="password" placeholder="Введите пароль" required
+                        minlength="8" autocomplete="new-password" />
 
                     <label for="password_confirm" minlenght="3">Повторите пароль</label>
                     <input type="password" name="password_confirm" placeholder="Введите пароль" id="password_confirm"
@@ -47,8 +49,9 @@
         </div>
     </section>
 
-<!-- <script src="./register.js"></script> -->
-<script src="../public/app.js"></script>
-<script src="../register/register.js"></script>
+
+    <script src="../public/scripts/app.js"></script>
+    <script src="./register.js"></script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,30 @@
     <link rel="stylesheet" href="/public/styles/auth.css">
     <title>Authorization</title>
 </head>
+
 <body>
-      <section>
+    <section>
         <div class="authorization">
             <form action="" method="get">
                 <div class="auth_form">
                     <h2 style="margin-bottom: 50px;">Авторизация</h2>
                     <label for="auth_email">Email</label>
-                    <input type="email" name="auth_email" placeholder="Введите ваш email" id="auth_email"
-                        required autocomplete="email" />
+                    <input type="email" name="auth_email" placeholder="Введите ваш email" id="auth_email" required
+                        autocomplete="email" />
 
                     <label for="password" minlenght="3">Пароль</label>
-                    <input type="password" name="password" placeholder="Введите пароль" id="password"
-                        required autocomplete="current-password" />
-                    <input type="submit"/>
+                    <input type="password" name="password" placeholder="Введите пароль" id="password" required
+                        autocomplete="current-password" />
+                    <input type="submit" />
                     <a href="../register/register.html">Зарегистрироваться</a>
                 </div>
             </form>
-            
+
         </div>
     </section>
-<!-- <script src="/auth/auth.js"></script> -->
-<script src="../public/app.js"></script>
-<script src="../auth/auth.js"></script>
+
+    <script src="../public/scripts/app.js"></script>
+    <script src="./auth.js"></script>
 </body>
+
 </html>
