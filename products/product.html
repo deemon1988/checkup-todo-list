@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/products/products.css" rel="stylesheet">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .no-arrows::-webkit-outer-spin-button,
+        .no-arrows::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .no-arrows {
+            -moz-appearance: textfield;
+        }
+    </style>
+    <title>Купить</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="" class="img-fluid rounded" alt="{{ object.name }}">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">Синяя куртка The North Face</h2>
+                <p><strong>Категория:</strong> Одежда</p>
+                <p><strong>Описание:</strong> Куртка The North Face для мужчин с капюшоном</p>
+                <p><strong>Цена:</strong> 23725,00 ₽</p>
+                <p><strong>В наличии:</strong> 10 шт.</p>
+
+
+                <a href="{% url 'orders:buy' object.id %}">
+                    <button class="btn btn-success mt-3">Купить сейчас</button>
+                </a>
+
+
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Добавить в корзину</h5>
+                        <div class="row text-center">
+                            <div class="input-group justify-content-center">
+                                <button class="btn btn-outline-secondary" type="button" id="subBtn">
+                                    -
+                                </button>
+
+                                <input id="quantity-input" name="quantity" type="number"
+                                    class="form-control quantity-input text-center no-arrows" value="1" min="1"
+                                    max="10">
+
+                                <button class="btn btn-outline-secondary" type="button" id="addBtn">
+                                    +
+                                </button>
+                            </div>
+
+                            <div class="col-lg-4 d-flex align-items-center justify-content-center mt-2">
+                                <a href="#">
+                                    <button id="go-to-cart-btn" class="btn btn-success">
+                                        -> Корзина
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+<div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Добавить в корзину</h5>
+                        <div class="rowButtons text-center">
+                            
+
+                            <div class="blockCount">
+                    <div id="countField" style="display: none;" class="input-group justify-content-center">
+                                <button class="btn btn-outline-secondary" type="button" id="subBtn">-</button>
+                                <input id="quantity-input1" name="quantity" type="number"
+                                    class="form-control quantity-input text-center no-arrows" value="1" min="0" max="10">
+                                <button class="btn btn-outline-secondary" type="button" id="addBtn">+</button>
+                            </div>
+                <a href="{% url 'orders:buy' object.id %}">
+                    <button class="btn btn-success mr-3" id="buyNow">Купить сейчас</button>
+                </a>
+            
+                    <a href="#">
+                                    <button id="add-to-cart-btn" class="btn btn-success">В Корзину</button>
+           </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const inputBlock = document.getElementById("countField")
+        const toCartBtn = document.getElementById("add-to-cart-btn");
+        const addBtn1 = inputBlock.querySelector("#addBtn");
+        const subBtn1 = inputBlock.querySelector("#subBtn");
+        const inputValue = inputBlock.querySelector("#quantity-input1")
+        const buyNow = document.getElementById("buyNow")
+        const parrentBlock = document.querySelector("blockCount")
+        toCartBtn.addEventListener("click", () => {
+            toCartBtn.style.display = "inline-block"
+            toCartBtn.textContent = "-> Корзина"
+            
+            const cartLink = toCartBtn.parentElement;
+            console.log(cartLink)
+            cartLink.href = "./baskets.html";
+            cartLink.style.textDecoration = "none";
+
+
+            
+            inputBlock.style.display = "flex"
+            buyNow.style.display = "none"
+            inputValue.value = parseInt(1, 10)
+        })
+        subBtn1.addEventListener("click", () => updateCartValue(-1));
+        addBtn1.addEventListener("click", () => updateCartValue(1));
+        // Функция для обновления значения с учётом лимитов
+        function updateCartValue(delta) {
+            let currentValue = parseInt(inputValue.value, 10);
+            let minValue = parseInt(inputValue.min, 10);
+            let maxValue = parseInt(inputValue.max, 10);
+
+            currentValue += delta;
+
+            if (!isNaN(minValue) && currentValue <= minValue) {
+                currentValue = minValue;
+                toCartBtn.style.display = "inline-block"
+                toCartBtn.textContent = "В Корзину"
+                inputBlock.style.display = "none"
+                buyNow.style.display = "flex"
+            }
+            if (!isNaN(maxValue) && currentValue > maxValue) currentValue = maxValue;
+
+            inputValue.value = currentValue;
+            localStorage.setItem("toCartProduct", currentValue.toString());
+        }
+
+
+        
+        
+        const inputField = document.getElementById("quantity-input");
+        const addBtn = document.getElementById("addBtn");
+        const subBtn = document.getElementById("subBtn");
+
+        // Функция для обновления значения с учётом лимитов
+        function updateValue(delta) {
+            let currentValue = parseInt(inputField.value, 10);
+            let minValue = parseInt(inputField.min, 10);
+            let maxValue = parseInt(inputField.max, 10);
+
+            currentValue += delta;
+
+            if (!isNaN(minValue) && currentValue < minValue) currentValue = minValue;
+            if (!isNaN(maxValue) && currentValue > maxValue) currentValue = maxValue;
+
+            inputField.value = currentValue;
+            localStorage.setItem("countProduct", currentValue.toString());
+        }
+
+        // Обработчики клика
+        addBtn.addEventListener("click", () => updateValue(1));
+        subBtn.addEventListener("click", () => updateValue(-1));
+
+        // Также можно добавить обработчик на событие input, чтобы проверять ввод вручную
+        inputField.addEventListener("input", () => {
+            let value = parseInt(inputField.value, 10);
+            let minValue = parseInt(inputField.min, 10);
+            let maxValue = parseInt(inputField.max, 10);
+
+            if (isNaN(value)) {
+                inputField.value = minValue || 1;
+            } else {
+                if (value < minValue) inputField.value = minValue;
+                if (value > maxValue) inputField.value = maxValue;
+            }
+            localStorage.setItem("countProduct", inputField.value);
+        });
+
+        // Сохранение начального значения
+        localStorage.setItem("countProduct", inputField.value);
+    </script>
+</body>
+
+</html>

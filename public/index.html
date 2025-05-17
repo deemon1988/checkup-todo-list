@@ -7,7 +7,6 @@
     <title>Document Title</title>
     <link rel="stylesheet" href="styles/main.css" />
 </head>
-выв
 <body>
     <header id="header">
         <nav>
@@ -15,8 +14,17 @@
         <a href="#" id="exit">Выйти</a>
         </nav>
         <h3></h3>
+         <section>
+        <div id="success-message" style="display:none;">
+    <p>Вы успешно авторизованы!</p>
+    </div>
+    <div id="success-register" style="display:none;">
+    <p>Поздравляем, Вы успешно зарегистрированы!</p>
+    </div>
+    </section>
     </header>
-    
+
+
     <section>
         <div class="task-list">
             <h1>Добавить задачу</h1>
@@ -91,7 +99,7 @@
     <input type="checkbox" class="test-input2" placeholder="">
 
 
-    <script defer src="./scripts/app.js"></script>
+    <!-- <script defer src="./scripts/app.js"></script> -->
     <script src="./scripts/main.js"></script>
     <script type="module" src="./scripts/scripts.js"></script>
 

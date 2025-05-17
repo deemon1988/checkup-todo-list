@@ -238,3 +238,31 @@ input[type="submit"]:hover {
 .user-profile {
     border: 3px solid violet;
 }
+
+#success-message {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 1000; /* Повышаем приоритет отображения */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}
+
+#success-register {
+    position: relative;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 1000; /* Повышаем приоритет отображения */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Добавляем тень */
+}

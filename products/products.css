@@ -1,0 +1,35 @@
+body {
+    padding-top: 56px;
+}
+
+.rowButtons {
+    display: flex;
+    align-items: end;
+}
+
+.blockCount {
+  display: flex;
+  align-items: center;       /* Выравнивание по вертикали */
+  gap: 10px;                 /* Отступы между элементами */
+  flex-wrap: nowrap;         /* Запрет переноса на новую строку */
+}
+
+/* Фиксируем высоту всех кнопок и инпута */
+.blockCount .btn,
+.blockCount input[type="number"] {
+  height: calc(2.5em + 2px); /* Примерная высота для Bootstrap кнопок */
+  margin: 0;
+  padding: 0 12px;
+  font-size: 1rem;
+}
+
+#buyNow {
+    align-items: center;
+    width: max-content;
+}
+
+#add-to-cart-btn {
+    width: max-content;
+    /* display: flex;
+    align-items: center; */
+}
