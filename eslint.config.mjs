@@ -12,7 +12,7 @@ export default defineConfig([
     files: ['**/*.{js,mjs,cjs}'],
     ...js.configs.recommended,
     languageOptions: {
-      ecmaVersion: 2021,
+      ecmaVersion: 2022,
       sourceType: 'module',
       globals: {
         ...globals.browser,

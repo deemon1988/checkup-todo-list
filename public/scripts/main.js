@@ -1,4 +1,5 @@
 const MOKKY_URL = 'https://5966e44c806d7811.mokky.dev';
+const TOKEN = localStorage.getItem('token');
 
 // Получение токена из local storage
 const token = localStorage.getItem('token');
@@ -17,103 +18,112 @@ exitBtn.addEventListener('click', (event) => {
   window.location.href = '../auth/auth.html';
 });
 
-// Функция для добавления новой задачи, на главной странице (для авторизованного пользователя)
-const task = document.getElementById('add-task');
-async function createTask() {
-  const token = localStorage.getItem('token');
-  try {
-    const res = await fetch(`${MOKKY_URL}/tasks`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        content: task.value,
-      }),
-    });
-    // .then(resp => resp.json())
-    // .then(json => console.log(json))
-
-    if (res.ok) {
-      console.log('Задача добавлена');
-      getAllTasks();
-    } else {
-      console.log('Ошибка при создании задачи:', await res.json());
-    }
-  } catch (error) {
-    console.log('Ошибка:', error.message);
+function sendUpdateTask(e, targetTask) {
+  e.preventDefault();
+  console.log(e.target);
+  if (e.type === 'click') {
+    document.querySelector('.edit-form').style.display = 'none';
+    return;
   }
+  const taskId = targetTask.dataset.id;
+  const taskContent = document.querySelector('#edit-form textarea').value;
+  fetch(`${MOKKY_URL}/tasks/${taskId}`, {
+    method: 'PATCH',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${TOKEN}`,
+    },
+    body: JSON.stringify({
+      content: `${taskContent}`,
+    }),
+  })
+    .then((response) => response.json())
+    .catch((error) => console.error(error));
+  document.getElementById('edit-form').style.display = 'none';
+
+  targetTask.closest('.user-cards').querySelector('.desc').innerHTML =
+    `<strong>Описание:</strong> ${taskContent}`;
 }
 
-// Обработчик события "Добавить задачу"
-const form = document.getElementById('task-form');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  createTask();
-  task.value = '';
+function editTask(targetTask) {
+  const editForm = document.querySelector('.edit-form');
+  editForm.style.display = 'block';
+  editForm.querySelector('h3').textContent =
+    `Задача ID: ${targetTask.dataset.id}`;
+  document.querySelector('.edit-form textarea').value =
+    targetTask.dataset.content;
+  editForm.addEventListener('submit', (e) => sendUpdateTask(e, targetTask));
+  const cancelBtn = editForm.querySelector('.cancelBtn');
+  cancelBtn.addEventListener('click', (e) => sendUpdateTask(e, targetTask));
+}
+
+export function createTaskCards(task) {
+  const userCard = document.createElement('div');
+  userCard.className = 'user-cards';
+  userCard.innerHTML = `
+      <p><strong>ID:</strong> ${task.id}</p>
+      <p class='desc'><strong>Описание:</strong> ${task.content}</p>
+      <button class='editTask' data-id="${task.id}" data-content="${task.content}"><img src="../public/images/icon-edit.png" alt="Edit" width="20" height="20"></button>
+      <button class='deleteTask' data-id="${task.id}"><img src="../public/images/delete-button.png" alt="Delete" width="20" height="20"></button>
+      <button class='someBtn' data-prop="123">Тестовая кнопка</button>
+      `;
+  document.querySelector('.card-container').appendChild(userCard);
+}
+
+export function getTasks() {
+  fetch(`${MOKKY_URL}/tasks`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${TOKEN}`,
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((task) => {
+        createTaskCards(task);
+      });
+
+      console.log(
+        'Задачи на странице:',
+        document.querySelectorAll('.user-cards'),
+      );
+    });
+}
+getTasks();
+
+document.addEventListener('DOMContentLoaded', function () {
+  const container = document.querySelector('.card-container');
+  container.addEventListener('click', function (e) {
+    const target = e.target;
+    if (target) {
+      if (target.closest('.editTask')) {
+        editTask(target);
+      } else if (target.closest('.deleteTask')) {
+        if (confirm(`Задача ${target.dataset.id} будет удалена`))
+          deleteTask(target);
+      }
+    }
+  });
 });
 
-getAllTasks();
-
-// Функция для получения всех задач пользователя (требует доработки для конкретного пользователя)
-async function getAllTasks() {
-  let existingTaskIds =
-    JSON.parse(localStorage.getItem('existingTaskIds')) || [];
-  const token = localStorage.getItem('token');
-  try {
-    const res = await fetch(`${MOKKY_URL}/tasks`, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    if (!res.ok) {
-      throw new Error(`Ошибка при получении задач: ${res.status}`);
-    }
-    const jsonData = await res.json();
-    console.log('Задачи пользователя:', jsonData);
-
-    // Предикатная функция проверяет какой задачи нет в общем списке, чтобы добавить на страницу
-    const newTasks = jsonData.filter(
-      (task) => !existingTaskIds.includes(task.id),
-    );
-
-    if (newTasks.length > 0) {
-      // Добавляем новые задачи на страницу
-      newTasks.forEach((task) => {
-        const { id, content } = task;
-        existingTaskIds.push(id);
-        localStorage.setItem(
-          'existingTaskIds',
-          JSON.stringify(existingTaskIds),
-        );
-
-        const div = document.createElement('div');
-        div.className = 'user-card';
-        div.innerHTML = `
-                    <p><strong>ID:</strong> ${id}</p>
-                    <p><strong>Описание:</strong> ${content}</p>`;
-        const divCreate = document.getElementById('tasks-list');
-        divCreate.after(div);
-      });
-    } else {
-      jsonData.forEach((task) => {
-        const { id, content } = task;
-        existingTaskIds.push(id);
-        const div = document.createElement('div');
-        div.className = 'user-card';
-        div.innerHTML = `
-                    <p><strong>ID:</strong> ${id}</p>
-                    <p><strong>Описание:</strong> ${content}</p>`;
-        const divCreate = document.getElementById('tasks-list');
-        divCreate.after(div);
-      });
-    }
-  } catch (error) {
-    console.log('Ошибка:', error.message);
-  }
+function deleteTask(targetTask) {
+  const taskId = targetTask.dataset.id;
+  fetch(`${MOKKY_URL}/tasks/${taskId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      Authorization: `Bearer ${TOKEN}`,
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Задача успешно удалена');
+      }
+    })
+    .catch((error) => console.error(error));
+  targetTask.closest('.user-cards').remove();
 }
