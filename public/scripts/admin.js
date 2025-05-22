@@ -23,7 +23,6 @@
 //   }
 // });
 
-
 // async function getUsers() {
 //   const res = await fetch("https://5966e44c806d7811.mokky.dev/users", {
 //     method: "GET",

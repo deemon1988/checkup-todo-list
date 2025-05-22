@@ -15,7 +15,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-    
+
 }
 
 .list>li {
@@ -31,21 +31,84 @@
     /* overflow-y: auto; */
     min-height: 150px;
     /* height: 150px; */
-    word-wrap: break-word; /* Переносит слова при необходимости */
+    word-wrap: break-word;
+    /* Переносит слова при необходимости */
     max-width: 100%;
 }
 
 
 @media (hover: hover) {
-.list>li:hover {
-    background-color: yellowgreen;
-}
+    .list>li:hover {
+        background-color: yellowgreen;
+    }
 }
 
 body {
+    margin: 0;
     font-family: "Open Sans", sans-serif;
     font-style: normal;
 }
+
+
+.top-menu {
+    display: flex;
+    color: rgb(80, 77, 77);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.top-menu h2 {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+    color: inherit;
+    flex-wrap: wrap;
+}
+
+.top-menu img {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.list-menu {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    margin-left: auto;
+    flex-wrap: wrap;
+    margin-right: 17px;
+}
+
+@media (max-width: 440px) {
+    .list-menu {
+        margin-right: auto;
+        justify-content: center;
+    }
+}
+
+.list-item {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list-item a {
+    text-decoration: none;
+    padding: 10px;
+    color: inherit;
+}
+
+
+
 
 .parent {
     display: flex;
@@ -70,8 +133,10 @@ body {
 
 .registration {
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
+    justify-content: center;
+    /* Центрирование по горизонтали */
+    align-items: center;
+    /* Центрирование по вертикали */
     height: 100vh;
 }
 
@@ -106,8 +171,10 @@ body {
 
 .authorization {
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
+    justify-content: center;
+    /* Центрирование по горизонтали */
+    align-items: center;
+    /* Центрирование по вертикали */
     height: 100vh;
 
 }
@@ -115,7 +182,7 @@ body {
 .authorization form {
     display: flex;
     justify-content: center;
-    
+
 }
 
 .auth_form {
@@ -175,33 +242,48 @@ nav>a {
     padding: 10px 10px 20px 10px;
 }
 
+.task-list {
+    padding: 10px;
+    display: none;
+    justify-content: center;
+    background-color: #EECCBB;
+    flex-direction: column;
+    margin: 30px;
+    word-wrap: break-word;
+    min-width: 200px;
+}
 
+#task-form {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
 
+.task-list .field {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 10px;
+    resize: none;
+}
+
+.edit-form .field {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 9px;
+    resize: none;
+}
+.edit-form input[type="submit"] {
+    background-color: #6A809A;
+}
+.edit-form input[type="submit"]:hover {
+    background-color: #6fee82;
+    color: white;
+}
 section>div {
     align-items: center;
     display: inline-block;
-}
-
-.task-list {
-    padding: 10px;
-    display: block;
-    background-color: #EECCBB;
-}
-
-
-
-
-.task-list form {
-    display: inline-grid;
-}
-
-form>label {
-    padding: 0px;
-}
-
-form>input {
-    margin-bottom: 10px;
-    padding: 5px 5px 5px 5px;
 }
 
 
@@ -214,12 +296,45 @@ input[type="submit"] {
     padding: 10px;
     border-radius: 20px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 input[type="submit"]:hover {
     background-color: #6A809A;
     color: white;
+}
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.greeting {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: center;
+}
+
+#header {
+    border: 1px solid darkviolet;
+}
+
+#main {
+    display: flex;
+    padding: 10px;
+    margin: 20px;
+}
+
+#profile-info {
+    position: static;
+    right: 0px;
+    margin-left: auto;
+}
+
+.user-cards:nth-child(odd) {
+    background-color: #A0B2C6;
 }
 
 .user-card {
@@ -233,4 +348,101 @@ input[type="submit"]:hover {
     text-align: center;
     border-radius: 0 0 15px 15px;
     box-shadow: 0px 9px 15px -10px rgba(0, 0, 0, 1.2)
+}
+
+.user-cards {
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background: linear-gradient();
+    width: auto;
+    display: flexbox;
+    align-items: center;
+    text-align: center;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0px 9px 15px -10px rgba(0, 0, 0, 1.2)
+}
+
+.user-profile {
+    border: 3px solid violet;
+    padding: 10px;
+    height: fit-content;
+}
+
+#success-message {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 1000;
+    /* Повышаем приоритет отображения */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Добавляем тень */
+}
+
+#success-register {
+    position: relative;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 1000;
+    /* Повышаем приоритет отображения */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Добавляем тень */
+}
+
+.success {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 1000;
+    /* Повышаем приоритет отображения */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Добавляем тень */
+}
+
+.editTask {
+    background-color: #b3dcb5;
+}
+
+.edit-form {
+    display: none;
+    flex-direction: column;
+}
+
+.edit-form .close-btn {
+    display: contents;
+}
+
+.task-nav {
+    display: flex;
+}
+
+.task-nav ul {
+    display: flex;
+    gap: 150px;
+    padding: 0;
+    margin: 20px;
+}
+
+.task-nav ul li {
+    height: 30px;
+    display: flex;
+    text-decoration: none
 }

@@ -1,95 +1,200 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document Title</title>
-    <link rel="stylesheet" href="styles/main.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document Title</title>
+  <link rel="stylesheet" href="styles/main.css" />
 </head>
 
 <body>
-    <nav>
-        <a href="#">Профиль</a>
-        <a href="#" id="exit">Выйти</a>
+  <header id="header">
+    <nav class="top-menu">
+      <div class="logo">
+        <img src="../public/images/icon-logo.png" width="65px;" />
+        <h2>Taskify</h2>
+      </div>
+
+      <ul class="list-menu">
+        <li class="list-item">
+          <a href="#">Профиль</a>
+        </li>
+        <li class="list-item">
+          <a href="#" id="exit">Выйти</a>
+        </li>
+      </ul>
     </nav>
+
+    <h3></h3>
     <section>
-        <div class="task-list">
-            <h1>Добавить задачу</h1>
-            <form action="" id="task-form" method="get">
-                <label for="title-task">Название задачи</label>
-                <br />
-                <input type="text" name="title-task" id="title-task">
-                <label for="add-task">Описание задачи</label>
-                <br />
-                <textarea cols="50" rows="5" name="add-task" id="add-task"></textarea>
-                <input type="submit" />
-            </form>
-        </div>
-
-        <div class="list-container">
-            <ul class="list">
-                <li>
-                    <div class="user-card" style="background-color: aqua;">
-                        <p><strong>ID:</strong> 29</p>
-                        <p><strong>Описание:</strong> feg</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="user-card" style="background-color: aqua;">
-                        <p><strong>ID:</strong> 29</p>
-                        <p><strong>Описание:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Reiciendis enim officiis dolorem, in quibusdam iste. Corporis quisquam id laborum, adipisci
-                            similique minus qui numquam veritatis vero quasi ad vel fuga.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="user-card" style="background-color: aqua;">
-                        <p><strong>ID:</strong> 29</p>
-                        <p><strong>Описание:</strong> feg</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="user-card" style="background-color: aqua;">
-                        <p><strong>ID:</strong> 29</p>
-                        <p><strong>Описание:</strong> feg</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="user-card" style="background-color: aqua;">
-                        <p><strong>ID:</strong> 29</p>
-                        <p><strong>Описание:</strong> feg</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <h1 id="tasks-list">Список задач</h1>
-
-
+      <div id="success-message" style="display: none">
+        <p>Вы успешно авторизованы!</p>
+      </div>
+      <div id="success-register" style="display: none">
+        <p>Поздравляем, Вы успешно зарегистрированы!</p>
+      </div>
     </section>
-    <section style=" margin-top: 10px;">
-        <div class="parent">
-            <div class="child">Элемент 1</div>
-            <div class="child">Элемент 2</div>
-            <div class="child">Элемент 3</div>
-        </div>
-    </section>
+  </header>
+  <section id="navigation">
+    <nav class="task-nav">
+      <ul>
+        <li><button type="button" id="add">Добавить новую задачу</button></li>
+        <li><button type="button" id="search">Найти задачу</button></li>
+      </ul>
+    </nav>
 
-    <button class="event1" style="height: 30px; margin: 20px 20px 0 0;">Все пользователи</button>
-    <div class="userDelete" style="margin: 20px 0;">
-        <button class="event2" style="height: 30px; background-color: rgb(42, 231, 99);">Удалить пользователя</button>
-        <input type="number" class="userId" placeholder="User ID">
+  </section>
+  <section id="top-bar" style="display: flex;">
+   
+  </section>
+  <main id="main">
+
+    <section class="card-container"></section>
+
+     <aside id="profile-info">
+      <div class="user-profile">
+        <h3>Профиль пользователя</h3>
+      </div>
+    </aside>
+
+  </main>
+
+
+
+  <form action="" class="edit-form" method="get">
+    <h3></h3>
+    <button type="button" class="close-btn">
+      <img src="../public/images/close-button.png" alt="Close" width="20" height="20" />
+    </button>
+    <label for="title-task">Название задачи</label>
+    <br />
+    <input type="text" name="title-task" class="field" />
+    <label for="desk-task">Описание задачи</label>
+    <br />
+    <textarea cols="50" rows="5" name="desk-task" class="field" required></textarea>
+    <input type="submit" value="Сохранить"/>
+  </form>
+
+
+
+  <div class="task-list">
+    <form action="" id="task-form" method="get">
+      <h1>Добавить задачу</h1>
+      <div class="form-row">
+        <label for="task-title">Название задачи</label>
+        <br />
+        <input type="text" name="task-title" class="field" required placeholder="новая задача" />
+      </div>
+      <div class="form-row">
+        <label for="task-desc">Описание задачи</label>
+        <br />
+        <textarea cols="50" rows="5" name="task-desc" class="field" required
+          placeholder="Подробное описание..."></textarea>
+      </div>
+      <input type="submit" />
+    </form>
+  </div>
+  <div style="display: inline-block; background-color: chocolate;">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+      Vel sunt adipisci neque nemo similique excepturi dolorem, praesentium quos itaque exercitationem velit
+      reprehenderit quia,<br>
+      incidunt recusandae distinctio, illo ipsum quis ullam!
+    </p>
+  </div>
+
+
+  <h1>Список задач</h1>
+  <div class="list-container">
+    <ul class="list">
+      <li>
+        <div class="user-card" style="background-color: aqua">
+          <p><strong>ID:</strong> 29</p>
+          <p><strong>Описание:</strong> feg</p>
+        </div>
+      </li>
+      <li>
+        <div class="user-card" style="background-color: aqua">
+          <p><strong>ID:</strong> 29</p>
+          <p>
+            <strong>Описание:</strong> Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Reiciendis enim officiis dolorem,
+            in quibusdam iste. Corporis quisquam id laborum, adipisci
+            similique minus qui numquam veritatis vero quasi ad vel fuga.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div class="user-card" style="background-color: aqua">
+          <p><strong>ID:</strong> 29</p>
+          <p><strong>Описание:</strong> feg</p>
+        </div>
+      </li>
+      <li>
+        <div class="user-card" style="background-color: aqua">
+          <p><strong>ID:</strong> 29</p>
+          <p><strong>Описание:</strong> feg</p>
+        </div>
+      </li>
+      <li>
+        <div class="user-card" style="background-color: aqua">
+          <p><strong>ID:</strong> 29</p>
+          <p><strong>Описание:</strong> feg</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </section>
+  <section style="margin-top: 10px">
+    <div class="parent">
+      <div class="child">Элемент 1</div>
+      <div class="child">Элемент 2</div>
+      <div class="child">Элемент 3</div>
     </div>
+  </section>
 
+  <button class="event1" style="height: 30px; margin: 20px 20px 0 0">
+    Все пользователи
+  </button>
+  <div class="userDelete" style="margin: 20px 0">
+    <button class="event2" style="height: 30px; background-color: rgb(42, 231, 99)">
+      Удалить пользователя
+    </button>
+    <input type="number" class="userId" placeholder="User ID" />
+  </div>
 
-    <button class="event3" style="height: 30px; background-color: rgb(42, 114, 231);">Click button 3</button>
-    <input type="text" class="test-input" placeholder="Введите имя">
-    <input type="checkbox" class="test-input2" placeholder="">
+  <button class="event3" style="height: 30px; background-color: rgb(42, 114, 231)">
+    Click button 3
+  </button>
 
+  <input type="text" class="test-input" placeholder="Введите имя" />
+  <input type="checkbox" class="test-input2" placeholder="" />
 
-    <script defer src="./scripts/app.js"></script>
-    <script src="./scripts/main.js"></script>
+  <div class="block1">
+    <p>Абзац 1</p>
+    <p>Абзац 2</p>
+  </div>
+  <div class="block">
+    <div class="block2">
+      <p class="mainP">Абзац 3</p>
+      <p>Абзац 4</p>
+    </div>
+  </div>
 
+  <div class="user-card" data-role="admin">Админ</div>
+  <div class="user-card" data-role="guest">Гость</div>
+
+  <script>
+    const p = document.querySelector('.mainP');
+    const parent = p.closest('.block1');
+    console.log(parent);
+  </script>
+
+  <!-- <script defer src="./scripts/app.js"></script> -->
+  <script type="module" src="../tasks/tasks.js"></script>
+  <script type="module" src="./scripts/main.js"></script>
+  <script type="module" src="./scripts/scripts.js"></script>
 </body>
 
 </html>
