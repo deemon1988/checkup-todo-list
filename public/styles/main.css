@@ -242,33 +242,48 @@ nav>a {
     padding: 10px 10px 20px 10px;
 }
 
+.task-list {
+    padding: 10px;
+    display: none;
+    justify-content: center;
+    background-color: #EECCBB;
+    flex-direction: column;
+    margin: 30px;
+    word-wrap: break-word;
+    min-width: 200px;
+}
 
+#task-form {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
 
+.task-list .field {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 10px;
+    resize: none;
+}
+
+.edit-form .field {
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 9px;
+    resize: none;
+}
+.edit-form input[type="submit"] {
+    background-color: #6A809A;
+}
+.edit-form input[type="submit"]:hover {
+    background-color: #6fee82;
+    color: white;
+}
 section>div {
     align-items: center;
     display: inline-block;
-}
-
-.task-list {
-    padding: 10px;
-    display: block;
-    background-color: #EECCBB;
-}
-
-
-
-
-.task-list form {
-    display: inline-grid;
-}
-
-form>label {
-    padding: 0px;
-}
-
-form>input {
-    margin-bottom: 10px;
-    padding: 5px 5px 5px 5px;
 }
 
 
@@ -281,12 +296,45 @@ input[type="submit"] {
     padding: 10px;
     border-radius: 20px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 input[type="submit"]:hover {
     background-color: #6A809A;
     color: white;
+}
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.greeting {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: center;
+}
+
+#header {
+    border: 1px solid darkviolet;
+}
+
+#main {
+    display: flex;
+    padding: 10px;
+    margin: 20px;
+}
+
+#profile-info {
+    position: static;
+    right: 0px;
+    margin-left: auto;
+}
+
+.user-cards:nth-child(odd) {
+    background-color: #A0B2C6;
 }
 
 .user-card {
@@ -307,7 +355,7 @@ input[type="submit"]:hover {
     margin-bottom: 20px;
     margin-right: 20px;
     background: linear-gradient();
-    width: 30%;
+    width: auto;
     display: flexbox;
     align-items: center;
     text-align: center;
@@ -317,6 +365,8 @@ input[type="submit"]:hover {
 
 .user-profile {
     border: 3px solid violet;
+    padding: 10px;
+    height: fit-content;
 }
 
 #success-message {
@@ -373,4 +423,26 @@ input[type="submit"]:hover {
 
 .edit-form {
     display: none;
+    flex-direction: column;
+}
+
+.edit-form .close-btn {
+    display: contents;
+}
+
+.task-nav {
+    display: flex;
+}
+
+.task-nav ul {
+    display: flex;
+    gap: 150px;
+    padding: 0;
+    margin: 20px;
+}
+
+.task-nav ul li {
+    height: 30px;
+    display: flex;
+    text-decoration: none
 }

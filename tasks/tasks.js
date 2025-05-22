@@ -1,4 +1,5 @@
 import { createTaskCards } from '../public/scripts/main.js';
+import { formatDate } from '../public/scripts/utils.js';
 const MOKKY_URL = 'https://5966e44c806d7811.mokky.dev';
 
 // Функция для получения всех задач пользователя (требует доработки для конкретного пользователя)
@@ -113,18 +114,18 @@ function successTaskAdded() {
 const form = document.getElementById('task-form');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  const decription = form.querySelector('#add-task').value;
-  createTask(decription);
-  form.querySelector('#add-task').value = '';
-  form.querySelector('#title-task').value = '';
+  const decription = form.querySelector('#task-form textarea').value;
+  const title = form.querySelector('#task-form input[name="task-title"]').value;
+  createTask(decription, title);
+  form.querySelector('#task-form textarea').value = '';
+  form.querySelector('#task-form input[name="task-title').value = '';
+  form.closest('.task-list').style.display = 'none';
   successTaskAdded();
 });
 
 // Функция для добавления новой задачи, на главной странице (для авторизованного пользователя)
-
-async function createTask(description) {
+async function createTask(description, title, priority) {
   const token = localStorage.getItem('token');
-
   const res = await fetch(`${MOKKY_URL}/tasks`, {
     method: 'POST',
     headers: {
@@ -133,7 +134,11 @@ async function createTask(description) {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
-      content: description,
+      title: title,
+      desc: description,
+      created: formatDate(),
+      isCompleted: false,
+      priority: 3,
     }),
   })
     .then((resp) => resp.json())
@@ -146,3 +151,13 @@ async function createTask(description) {
       console.log('Ошибка при создании задачи:', res.json());
     });
 }
+
+const addForm = document.querySelector('.task-list');
+const navBar = document.querySelector('.task-nav');
+navBar.addEventListener('click', (e) => {
+  const target = e.target;
+  if (target.closest('#add')) {
+    navBar.after(addForm);
+    addForm.style.display = 'flex';
+  }
+});

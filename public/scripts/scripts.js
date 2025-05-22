@@ -1,5 +1,5 @@
 import axios from '../../node_modules/axios/dist/esm/axios.js';
-
+import { formatDate } from './utils.js';
 const token = localStorage.getItem('token');
 
 async function getUserInfo(token) {
@@ -34,25 +34,22 @@ function createUserElement(user) {
   const login = user.login;
   const username = user.username;
   const email = user.email;
-  const userInfo = [login, username, email];
-  const div = document.createElement('div');
-  const p = document.createElement('p');
-  p.innerHTML = `<h3>Привет, ${login}!</h3>`;
-  const div_profile = document.createElement('div');
-  div_profile.innerHTML = '<strong>Профиль пользователя:</strong>';
-  div_profile.classList.add('user-profile');
-  div.appendChild(p);
-  userInfo.forEach((elem) => {
-    if (elem) {
-      const p = document.createElement('p');
-      p.textContent = `${elem}!`;
-      div_profile.appendChild(p);
-    }
-  });
 
-  const header = document.getElementById('header');
-  header.after(div);
-  div.after(div_profile);
+  const greetingDiv = document.createElement('div');
+  greetingDiv.className = 'greeting';
+  const topMenu = document.querySelector('.top-menu .logo');
+  greetingDiv.innerHTML = `<h3>Привет, ${login}!</h3>`;
+  topMenu.after(greetingDiv);
+
+  const profileBlock = document.querySelector('#profile-info .user-profile h3');
+  profileBlock.before(`${formatDate()}`);
+  const userInfo = document.createElement('div');
+  userInfo.innerHTML = `
+  <p><strong>Логин: </strong>${login}</p>
+  <p><strong>Email: </strong>${email}</p>
+  <p><strong>Имя: </strong>${username}</p>
+  `;
+  profileBlock.after(userInfo);
 }
 
 axios.get('https://swapi-api.hbtn.io/api/films/1', {}).then((res) => {
