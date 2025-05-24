@@ -1,15 +1,7 @@
 import { taskPatch } from './fetch.js';
 import { getPriority } from './utils.js';
-const MOKKY_URL = 'https://5966e44c806d7811.mokky.dev';
-const TOKEN = localStorage.getItem('token');
-
-// Получение токена из local storage
-const token = localStorage.getItem('token');
-
-// Перенаправление на страницу авторизации если нет токена авторизации
-if (!token) {
-  window.location.href = '../auth/auth.html';
-}
+import { MOKKY_URL } from '../../config.js';
+import { TOKEN } from '../../config.js';
 
 // Обработчик кнопки "Выйти". Удаление токена и перенаправление на страницу авторизации
 const exitBtn = document.getElementById('exit');
@@ -144,6 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Функция отправки запроса для удаления задачи
 function deleteTask(targetTask) {
   const taskId = targetTask.closest('.deleteTask').dataset.id;
 

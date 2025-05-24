@@ -1,6 +1,7 @@
 import { createTaskCards } from '../public/scripts/main.js';
 import { formatDate } from '../public/scripts/utils.js';
-const MOKKY_URL = 'https://5966e44c806d7811.mokky.dev';
+// const MOKKY_URL = 'https://5966e44c806d7811.mokky.dev';
+import { MOKKY_URL } from '../../config.js';
 
 // Функция для получения всех задач пользователя (требует доработки для конкретного пользователя)
 export async function getAllTasks() {

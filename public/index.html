@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document Title</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <script src="../auth-guard.js"></script>
 </head>
 
 <body>
@@ -46,13 +47,13 @@
 
   </section>
   <section id="top-bar" style="display: flex;">
-   
+
   </section>
   <main id="main">
 
     <section class="card-container"></section>
 
-     <aside id="profile-info">
+    <aside id="profile-info">
       <div class="user-profile">
         <h3>Профиль пользователя</h3>
       </div>
@@ -73,7 +74,7 @@
     <label for="desk-task">Описание задачи</label>
     <br />
     <textarea cols="50" rows="5" name="desk-task" class="field" required></textarea>
-    <input type="submit" value="Сохранить"/>
+    <input type="submit" value="Сохранить" />
   </form>
 
 
@@ -82,14 +83,13 @@
     <form action="" id="task-form" method="get">
       <h1>Добавить задачу</h1>
       <div class="form-row">
-        <label for="task-title">Название задачи</label>
-        <br />
-        <input type="text" name="task-title" class="field" required placeholder="новая задача" />
+        <label for="field-title">Название задачи</label>
+        <input type="text" name="task-title" class="field" id="field-title" required placeholder="новая задача" />
       </div>
       <div class="form-row">
-        <label for="task-desc">Описание задачи</label>
-        <br />
-        <textarea cols="50" rows="5" name="task-desc" class="field" required
+        <label for="field-desc">Описание задачи</label>
+        <br>
+        <textarea cols="50" rows="5" name="task-desc" class="field" id="field-desc" required
           placeholder="Подробное описание..."></textarea>
       </div>
       <input type="submit" />
@@ -171,27 +171,13 @@
   <input type="text" class="test-input" placeholder="Введите имя" />
   <input type="checkbox" class="test-input2" placeholder="" />
 
-  <div class="block1">
-    <p>Абзац 1</p>
-    <p>Абзац 2</p>
-  </div>
-  <div class="block">
-    <div class="block2">
-      <p class="mainP">Абзац 3</p>
-      <p>Абзац 4</p>
-    </div>
-  </div>
+
 
   <div class="user-card" data-role="admin">Админ</div>
   <div class="user-card" data-role="guest">Гость</div>
 
-  <script>
-    const p = document.querySelector('.mainP');
-    const parent = p.closest('.block1');
-    console.log(parent);
-  </script>
 
-  <!-- <script defer src="./scripts/app.js"></script> -->
+
   <script type="module" src="../tasks/tasks.js"></script>
   <script type="module" src="./scripts/main.js"></script>
   <script type="module" src="./scripts/scripts.js"></script>

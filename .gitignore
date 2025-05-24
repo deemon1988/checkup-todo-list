@@ -1,2 +1,4 @@
 node_modules/
 products/bootstrap/
+.parcel-cache/
+dist/

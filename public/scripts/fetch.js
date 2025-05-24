@@ -1,5 +1,6 @@
-const MOKKY_URL = 'https://5966e44c806d7811.mokky.dev';
+import { MOKKY_URL } from '../../config.js';
 
+// Функция отправки запроса на частичное обновление задачи
 export function taskPatch(token, taskId, ...updatedValues) {
   fetch(`${MOKKY_URL}/tasks/${taskId}`, {
     method: 'PATCH',

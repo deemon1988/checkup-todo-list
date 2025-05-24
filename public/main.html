@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css ">
+    <link rel="stylesheet" href="./styles/main2.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <main id="main-container">
+
+        <header id="header">
+
+            <div class="logo">
+                <div class="top-icons">
+                    <div class="logo-img">
+                        <img src="../public/images/icon-task-list.png" width="55px;">
+                    </div>
+                    <h1>TO-DO List</h1>
+                    <div id="logout">
+                        <img src="../public/images/icon-exit.png" width="35px;">
+                        <img src="../public/images/icon-user.png" width="35px;">
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <section id="new-task">
+
+            <form id="create-task-form">
+                <div class="important">
+                    <img src="../public/images/task-not-done.png" width="30px;">
+                    <span>Important</span>
+                </div>
+                <div class="second__row">
+                    <input type="text" name="task-name" placeholder="Добавьте новую задачу...">
+                    <div class="input-with-icon">
+                        <i class="fas fa-clock icon-clock"></i>
+                        <input type="text" id="custom-date" placeholder="Время выполнения">
+                        <a class="input-button" title="clear" data-clear>
+                            <i class="fas fa-times-circle"></i> <!-- или используй свою иконку -->
+                        </a>
+                    </div>
+
+                </div>
+                <div class="task-labels">
+                    <span>Work</span>
+                    <span>Personal</span>
+                    <span>Hobby</span>
+                    <span>Home</span>
+                </div>
+                <input type="submit" name="create-task" value="+ Добавить">
+            </form>
+        </section>
+
+        <div id="tasks">
+            <nav class="task-list">
+                <ul class="list-menu">
+
+                </ul>
+            </nav>
+        </div>
+        <input type="text" class="date">
+    </main>
+
+    <script src="../scripts/eventHandlers.js"></script>
+    <script type="module" src="../scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ru.js "></script>
+    <script type="module" src="../scripts/flatpickr.js"></script>
+    <script>flatpickr('.date', {
+            minDate: "today"
+        });</script>
+</body>
+
+</html>

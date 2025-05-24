@@ -446,3 +446,7 @@ input[type="submit"]:hover {
     display: flex;
     text-decoration: none
 }
+
+.second__row {
+    display: flex;
+}

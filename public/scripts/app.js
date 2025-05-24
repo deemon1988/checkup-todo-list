@@ -1,7 +1,6 @@
 import { highlightFields } from './utils.js';
 import { error_message } from './utils.js';
-
-const MOKKY_URL = 'https://5966e44c806d7811.mokky.dev';
+import { MOKKY_URL } from '../../config.js';
 
 // Функция для отправки запросов авторизации и регистрации
 export async function sendFormRequest(endpoint, formData) {
@@ -17,7 +16,6 @@ export async function sendFormRequest(endpoint, formData) {
 
     if (res.ok) {
       const jsonData = await res.json();
-      console.log(jsonData);
       localStorage.setItem('token', jsonData.token);
       if (endpoint === 'auth') {
         localStorage.setItem('isLoggedIn', 'true');
